@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: homework1
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        enable.idempotence: true
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: reports-group
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+app:
+  states:
+    - sunny
+    - rainy
+    - cloudy
+  cities:
+    - Saint-Petersburg
+    - Moscow
+    - Magadan
+    - Yekaterinburg
+    - Novosibirsk
+    - Tyumen
+    - Petrozavodsk
