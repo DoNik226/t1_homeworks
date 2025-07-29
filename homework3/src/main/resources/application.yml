@@ -1,0 +1,10 @@
+spring.application.name: synthetic-human-core-starter
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  prometheus:
+    metrics:
+      export:
+        enabled: true
